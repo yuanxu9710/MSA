@@ -2,7 +2,7 @@
 
 ##
 
-### It's a experiments set for task MSA and i'm keeping adding more models into this set.
+### It's an experiments set for task MSA and i'm keeping adding more models into this set.
 
 ### The data is from Mult: [data](https://www.dropbox.com/sh/hyzpgx1hp9nj37s/AAB7FhBqJOFDw2hEyvv2ZXHxa?dl=0)
 
@@ -10,7 +10,7 @@
 
 # Paper List
 
-### Experiments has been implemented:
+### Experiments have been implemented:
 
 ### EF\_LSTM & LF\_LSTM: [Recognizing Emotions in Video Using Multimodal DNN Feature Fusion (Challenge-HML2018)](https://aclanthology.org/W18-3302/)
 ### TFN: [Tensor Fusion Network for Multimodal Sentiment Analysis (EMNLP2017)](https://doi.org/10.18653/v1/d17-1115)
