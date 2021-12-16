@@ -40,11 +40,7 @@ class EF_LSTM(nn.Module):
                                         nn.Linear(self.fusion_dim, self.output_mid_dim),
                                         nn.ReLU(),
                                         nn.Linear(self.output_mid_dim, self.output_dim),
-                                        nn.ReLU()
                                         )
-
-        self.output_range = nn.Parameter(torch.FloatTensor([6]), requires_grad=False)
-        self.output_shift = nn.Parameter(torch.FloatTensor([-3]), requires_grad=False)
 
  
     def forward(self, x_l, x_a, x_v):
@@ -64,7 +60,7 @@ class EF_LSTM(nn.Module):
 
         ### output
         output = self.output_layer(h)
-        output = torch.sigmoid(output) * self.output_range + self.output_shift
+
         return output
 
 

@@ -95,7 +95,7 @@ class CMD(nn.Module):
 
     def matchnorm(self, x1, x2):
         power = torch.pow(x1-x2,2)
-        summed = torch.sum(power)
+        summed = torch.sum(power+1e-6)
         sqrt = summed**(0.5)
         return sqrt
         # return ((x1-x2)**2).sum().sqrt()

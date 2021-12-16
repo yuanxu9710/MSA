@@ -86,11 +86,10 @@ class MISA(nn.Module):
                                     nn.Linear(self.encoder_dim*6, self.encoder_dim),
                                     nn.ReLU(),
                                     nn.Linear(self.encoder_dim, self.output_dim),
-                                    nn.ReLU()
                                     )
         self.transformer = TransformerEncoder(self.encoder_dim, self.num_heads, self.layers)
-        self.range = nn.Parameter(torch.FloatTensor([6]),requires_grad=False)
-        self.shift = nn.Parameter(torch.FloatTensor([-3]),requires_grad=False)
+        # self.range = nn.Parameter(torch.FloatTensor([6]),requires_grad=False)
+        # self.shift = nn.Parameter(torch.FloatTensor([-3]),requires_grad=False)
 
  
     def forward(self, x_l, x_a, x_v):
@@ -142,7 +141,8 @@ class MISA(nn.Module):
         h = self.transformer(h_all)
         h = torch.cat((h[0], h[1], h[2], h[3], h[4], h[5]), dim=1)
         h = self.fusion(h)
-        output = self.range * torch.sigmoid(h) + self.shift
+        output = h
+        # output = self.range * torch.sigmoid(h) + self.shift
 
         return output
 

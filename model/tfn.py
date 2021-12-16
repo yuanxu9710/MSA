@@ -45,11 +45,8 @@ class TFN(nn.Module):
                                         nn.Linear(self.output_mid_dim, self.output_mid_dim),
                                         nn.ReLU(),
                                         nn.Linear(self.output_mid_dim, self.output_dim),
-                                        nn.ReLU()
                                         )
 
-        self.output_range = nn.Parameter(torch.FloatTensor([6]), requires_grad=False)
-        self.output_shift = nn.Parameter(torch.FloatTensor([-3]), requires_grad=False)
 
  
     def forward(self, x_l, x_a, x_v):
@@ -88,7 +85,6 @@ class TFN(nn.Module):
         ### relu - > (0, 1) - > (-3, 3)
 
         output = self.output_layer(fusion_tensor)
-        output = torch.sigmoid(output) * self.output_range + self.output_shift
         return output, fusion_tensor
 
 
